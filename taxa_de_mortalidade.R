@@ -9,7 +9,9 @@ library(readxl)
 library(psych)
 
 # Usado para extrair Gráficos
-library(lessR)
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
 
 # Escolher local das Tabelas
 file.choose()
@@ -255,3 +257,62 @@ sd(obito_doenca$Total_2016)
 sd(obito_doenca$Total_2017)
 sd(obito_doenca$Total_2018)
 sd(obito_doenca$Total_2019)
+
+                                    # Gráficos
+
+
+                                    # Barplot
+
+# Taxa de Mortalidade - Atribuído a Doenças (Pessoas do Sexo Masculino)
+barplot(tapply(npessoas_doenca$Homens_2015, npessoas_doenca$Homens_2015, mean))
+
+title(main = "Taxa de Mortalidade - Atribuído a Doenças - 2015",
+      xlab = "", ylab = "",
+      font.main = 3)
+
+legend(x = "topleft",
+       legend = "Pessoas do Sexo Masculino",
+       lty = 1,
+       lwd = 3,
+       bty = "n")
+
+# Taxa de Mortalidade - Atribuído a Doenças - 2015 (Pessoas do Sexo Feminino)
+barplot(tapply(npessoas_doenca$Mulheres_2015, npessoas_doenca$Mulheres_2015, mean))
+
+title(main = "Taxa de Mortalidade - Atribuído a Doenças - 2015",
+      xlab = "", ylab = "",
+      font.main = 3)
+
+legend(x = "topleft",
+       legend = "Pessoas do Sexo Feminino",
+       lty = 1,
+       lwd = 3,
+       bty = "n")
+
+# Taxa de Mortalidade - Atribuído a Óbito - 2015 (Pessoas do Sexo Masculino)
+barplot(tapply(obito_doenca$Homens_2015, obito_doenca$Homens_2015, mean))
+
+title(main = "Taxa de Mortalidade - Atribuído a Óbito - 2015",
+      xlab = "", ylab = "",
+      font.main = 3)
+
+legend(x = "topleft",
+       legend = "Pessoas do Sexo Masculino",
+       lty = 1,
+       lwd = 3,
+       bty = "n")
+
+
+# Taxa de Mortalidade - Atribuído a Óbito - 2015 (Pessoas do Sexo Feminino)
+barplot(tapply(obito_doenca$Mulheres_2015, obito_doenca$Mulheres_2015, mean))
+
+title(main = "Taxa de Mortalidade - Atribuído a Óbito - 2015",
+      xlab = "", ylab = "",
+      font.main = 3)
+
+legend(x = "topleft",
+       legend = "Pessoas do Sexo Feminino",
+       lty = 1,
+       lwd = 3,
+       bty = "n")
+
